@@ -1,0 +1,7 @@
+README.md
+setup.py
+rctevaluation.egg-info/PKG-INFO
+rctevaluation.egg-info/SOURCES.txt
+rctevaluation.egg-info/dependency_links.txt
+rctevaluation.egg-info/requires.txt
+rctevaluation.egg-info/top_level.txt
