@@ -35,7 +35,7 @@ def aggregate_and_ttest(dataset, groupby_feature='province', alpha=.05, test_cel
         
         t_statistic, p_value = ttest_ind_from_stats(mean1=mean_treatment, std1=standard_deviation_treatment, nobs1=counts_treatment,mean2=mean_control,std2=standard_deviation_control,nobs2=counts_control)
         
-        #fstring to print the p value and t statistic
+        # f-string to print the p value and t statistic
         print(f"The t statistic of the comparison of the treatment test cell of {treatment} compared to the control test cell of {control} for the metric of {metric} is {t_statistic} and the p value is {p_value}.")
         
         #f string to say of the comparison is significant at a given alpha level
