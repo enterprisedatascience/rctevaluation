@@ -16,17 +16,22 @@ def aggregate_and_ttest(dataset, groupby_feature='province', alpha=.05, test_cel
         crosstab = dataset.groupby(groupby_feature, as_index=False)[metric].agg(['size', 'mean', 'std'])
         print(crosstab)
         
-        treatment = crosstab.index[test_cells[0]]
-        control = crosstab.index[test_cells[1]]
-        
-        counts_control = crosstab.loc[control, feature_size]
-        counts_treatment = crosstab.loc[treatment, feature_size]
+        # identify the rows representing treatment and control
+        treatment_row = crosstab.iloc[test_cells[0]]
+        control_row = crosstab.iloc[test_cells[1]]
 
-        mean_control = crosstab.loc[control, feature_mean]
-        mean_treatment = crosstab.loc[treatment, feature_mean]
+        treatment = treatment_row[groupby_feature]
+        control = control_row[groupby_feature]
 
-        standard_deviation_control = crosstab.loc[control, feature_std]
-        standard_deviation_treatment = crosstab.loc[treatment, feature_std]
+        # extract summary statistics for each group
+        counts_control = control_row[feature_size]
+        counts_treatment = treatment_row[feature_size]
+
+        mean_control = control_row[feature_mean]
+        mean_treatment = treatment_row[feature_mean]
+
+        standard_deviation_control = control_row[feature_std]
+        standard_deviation_treatment = treatment_row[feature_std]
         
         t_statistic, p_value = ttest_ind_from_stats(mean1=mean_treatment, std1=standard_deviation_treatment, nobs1=counts_treatment,mean2=mean_control,std2=standard_deviation_control,nobs2=counts_control)
         
