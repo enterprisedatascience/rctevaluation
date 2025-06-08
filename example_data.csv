@@ -1,0 +1,9 @@
+region,time,treatment,outcome
+A,0,0,10
+A,1,1,15
+B,0,0,9
+B,1,0,10
+C,0,1,12
+C,1,1,16
+D,0,0,8
+D,1,0,9
