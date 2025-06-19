@@ -1,21 +1,19 @@
-# rctevaluation
+## Aid Effectiveness – Synthetic Control Pipeline (Vietnam example)
 
-This repository provides simple utilities for evaluating randomized and observational studies without relying on heavy dependencies.
+This repository automates a full synthetic–control study that estimates the impact of foreign aid on a country's GDP.
+The default configuration replicates the Vietnam 1994 aid‑shock example from our ChatGPT session, but **any** country
+and treatment year can be analysed by changing a single YAML file.
 
-The `analysis_tools.py` module contains helpers for computing t-tests, difference-in-differences, and a lightweight synthetic control on small CSV datasets using only Python's standard library. A small demonstration dataset is provided in `example_data.csv`.
-
-## Usage
-
+### Quick start
 ```bash
-python analysis_tools.py example_data.csv
+# clone and enter
+git clone <your‑repo‑url>.git
+cd vietnam-aid-synth
+
+conda env create -n aid_synth -f environment.yml   # OR: pip install -r requirements.txt
+conda activate aid_synth
+
+python src/run_pipeline.py              # <- produces output/Vietnam_Aid_Study.pdf
 ```
 
-This command loads the example dataset, computes the difference-in-differences estimate and performs a basic t-test between treatment and control groups for the post-treatment period. It can also construct a simple synthetic control for a treated region.
-
-## AidData Scraper
-
-The repository includes `aiddata_scraper.py`, a simple utility to download dataset files linked from a web page on AidData. It searches the page for CSV, ZIP, Excel, or JSON links and saves them to a chosen directory. Please review AidData's terms of service before running automated downloads.
-
-```bash
-python aiddata_scraper.py https://www.aiddata.org/ data
-```
+See **docs/usage.md** for detailed instructions and troubleshooting.

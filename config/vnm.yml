@@ -1,0 +1,11 @@
+# default study parameters – edit to reuse for a different country
+
+# ISO‑3 country code receiving foreign aid
+treat_country: "VNM"
+# first year with a large, sustained ODA inflow
+treat_year: 1994
+# candidate control units (no heavy aid shock in the 90s)
+donors: ["IDN","PHL","THA","BGD","PAK","KEN","EGY","TUR"]
+# analysis window
+start_year: 1970
+end_year: 2022
