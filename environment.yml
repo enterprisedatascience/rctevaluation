@@ -1,0 +1,15 @@
+name: aid_synth
+channels: [conda-forge, defaults]
+dependencies:
+  - python=3.11
+  - pandas>=2.2
+  - numpy>=1.26
+  - matplotlib>=3.9
+  - wbgapi>=1.1.2
+  - pandasdmx>=2.1
+  - pip
+  - pip:
+      - SyntheticControlMethods>=0.3.2
+      - papermill>=2.6
+      - nbconvert>=7.16
+      - tabulate
